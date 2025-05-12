@@ -14,6 +14,7 @@ const userRoutes = require("../src/routes/user.routes");
 const itemRoutes = require("../src/routes/item.routes");
 const postRoutes = require("../src/routes/post.routes");
 const skillRoutes = require("../src/routes/skill.routes");
+const enemyRoutes = require("../src/routes/enemy.routes");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -31,6 +32,7 @@ app.use("/user", userRoutes);
 app.use("/skill", skillRoutes);
 app.use("/post", postRoutes);
 app.use("/item", itemRoutes);
+app.use("/enemy", enemyRoutes);
 
 app.listen(PORT, () =>
   console.log(`Backend server has been started on port: ${PORT}`)

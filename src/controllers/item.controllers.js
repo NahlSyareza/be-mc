@@ -17,7 +17,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const items = await Item.find();
+    const items = await Item.find().lean();
 
     return res.status(200).json({
       msg: "Items retrieved!",

@@ -2,8 +2,8 @@ const User = require("../models/UserSchema");
 const UserSkill = require("../models/UserSkillSchema");
 
 const create = async (req, res) => {
-  const { name, sid, major } = req.body;
-  const user = new User({ name, sid, major });
+  const { name, email, password } = req.body;
+  const user = new User({ name, email, password });
   try {
     await user.save();
 
@@ -15,6 +15,8 @@ const create = async (req, res) => {
     return res.status(400).send(e);
   }
 };
+
+const getByCredential = async (req, res) => {};
 
 const addSkill = async (req, res) => {
   const { user, skill } = req.body;
@@ -57,7 +59,7 @@ const getSkills = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const r = await User.find();
+    const r = await User.find().lean();
 
     return res.status(200).json({
       msg: "Users retrieved!",
@@ -71,6 +73,7 @@ const getAll = async (req, res) => {
 const getAllPopulated = async (req, res) => {
   try {
     const r = await User.find()
+      .lean()
       .populate("items")
       .populate({
         path: "skills",
@@ -91,8 +94,11 @@ const getAllPopulated = async (req, res) => {
 const get = async (req, res) => {
   const { id } = req.params;
 
+  console.log(id);
+
   try {
     const user = await User.findById(id)
+      .lean()
       .populate({ path: "items" })
       .populate({
         path: "skills",
@@ -100,8 +106,6 @@ const get = async (req, res) => {
           path: "skill",
         },
       });
-
-    console.log(user.skills[1].skill.name);
 
     return res.status(200).json({
       msg: "User found!",

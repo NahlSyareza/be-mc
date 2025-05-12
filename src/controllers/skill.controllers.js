@@ -20,7 +20,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const r = await Skill.find();
+    const r = await Skill.find().lean();
 
     return res.status(200).json({
       msg: "Skills retrieved!",
@@ -47,7 +47,7 @@ const progressXP = async (req, res) => {
       { new: true }
     );
 
-    const r = await UserSkill.findById(id);
+    const r = await UserSkill.findById(id).lean();
 
     console.log(
       `Progress XP: ${r.progress_xp} Level Up XP: ${r.level_up_xp} Level: ${r.level}`

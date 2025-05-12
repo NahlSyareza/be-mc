@@ -32,11 +32,13 @@ const get = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const posts = await Post.find().populate({
-      path: "owner",
-      // select: "name",
-      populate: { path: "items" },
-    });
+    const posts = await Post.find()
+      .lean()
+      .populate({
+        path: "owner",
+        // select: "name",
+        populate: { path: "items" },
+      });
 
     return res.status(200).json({
       msg: "Retrieve all posts",
