@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const c = require("../controllers/enemy.controllers");
+const c = require("../controllers/loot.controller");
 
 router.post("/create", c.create);
-router.put("/addItem", c.addItem);
-router.get("/get/:id", c.get);
+router.post("/add", c.add);
 router.get("/getAll", c.getAll);
 router.get("/getAll/p", c.getAllPopulated);
-router.get("/getLevelled/:level", c.getLevelled);
 
 module.exports = router;

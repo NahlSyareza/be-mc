@@ -5,15 +5,27 @@ const EnemySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  hp: {
+  max_hp: {
     type: Number,
     required: true,
   },
-  mp: {
+  max_mp: {
     type: Number,
     required: true,
   },
-  sp: {
+  max_sp: {
+    type: Number,
+    required: true,
+  },
+  atk: {
+    type: Number,
+    required: true,
+  },
+  def: {
+    type: Number,
+    required: true,
+  },
+  mgc: {
     type: Number,
     required: true,
   },
@@ -25,20 +37,16 @@ const EnemySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  items: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Item",
-    },
-  ],
-  skills: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User_Skill",
-    },
-  ],
   sprite: {
     type: String,
+  },
+  bg: {
+    type: String,
+    required: true,
+  },
+  biome: {
+    type: String,
+    required: true,
   },
 });
 

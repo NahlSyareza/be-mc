@@ -1,9 +1,8 @@
 const User = require("../models/UserSchema");
-const UserSkill = require("../models/UserSkillSchema");
 
 const create = async (req, res) => {
-  const { name, email, password } = req.body;
-  const user = new User({ name, email, password });
+  const { name, email, password, bg } = req.body;
+  const user = new User({ name, email, password, dummy: name, bg });
   try {
     await user.save();
 
@@ -16,44 +15,30 @@ const create = async (req, res) => {
   }
 };
 
-const getByCredential = async (req, res) => {};
+const getByCredential = async (req, res) => {
+  const { email, password } = req.body;
 
-const addSkill = async (req, res) => {
-  const { user, skill } = req.body;
-
-  const userSkill = new UserSkill({ skill });
   try {
-    await userSkill.save();
+    const d = await User.findOne({
+      email: email,
+      password: password,
+    });
 
-    const r = await User.findOneAndUpdate(
-      { _id: user },
-      {
-        $push: {
-          skills: userSkill._id,
-        },
-      },
-      { new: true }
-    );
+    console.log(d);
+
+    if (!d) {
+      return res
+        .status(200)
+        .json({ success: false, msg: "No users found!", payload: null });
+    }
 
     return res.status(200).json({
-      msg: "Msg",
-      payload: r,
+      success: true,
+      msg: "User found!",
+      payload: d,
     });
   } catch (e) {
-    return res.status(400).send(e);
-  }
-};
-
-const getSkills = async (req, res) => {
-  try {
-    const r = await UserSkill.find().populate("skill");
-
-    return res.status(200).json({
-      msg: "User skills retrieved!",
-      payload: r,
-    });
-  } catch (e) {
-    return res.status(400).send(e);
+    return res.status(200).send(e);
   }
 };
 
@@ -94,20 +79,11 @@ const getAllPopulated = async (req, res) => {
 const get = async (req, res) => {
   const { id } = req.params;
 
-  console.log(id);
-
   try {
-    const user = await User.findById(id)
-      .lean()
-      .populate({ path: "items" })
-      .populate({
-        path: "skills",
-        populate: {
-          path: "skill",
-        },
-      });
+    const user = await User.findById(id).lean();
 
     return res.status(200).json({
+      success: true,
       msg: "User found!",
       payload: user,
     });
@@ -139,12 +115,44 @@ const addItem = async (req, res) => {
   }
 };
 
+const getItems = async (req, res) => {
+  const { user } = req.params;
+
+  try {
+    const d = await User.findById(user).populate("items");
+
+    return res.status(200).json({
+      msg: "Items retrievedd!",
+      payload: d.items,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getAssocSkill = async (req, res) => {
+  const { user } = req.body;
+
+  try {
+    const d = await User.findById(user);
+
+    return res.status(200).json({
+      success: true,
+      msg: "User retrieved",
+      payload: d,
+    });
+  } catch (e) {
+    return res.send(e);
+  }
+};
+
 module.exports = {
   create,
-  addSkill,
   getAll,
   getAllPopulated,
   get,
   addItem,
-  getSkills,
+  getAssocSkill,
+  getItems,
+  getByCredential,
 };

@@ -1,9 +1,37 @@
 const Enemy = require("../models/EnemySchema");
 
 const create = async (req, res) => {
-  const { name, hp, mp, sp, difficulty, level } = req.body;
+  const {
+    name,
+    max_hp,
+    max_mp,
+    max_sp,
+    atk,
+    def,
+    mgc,
+    difficulty,
+    level,
+    sprite,
+    bg,
+    biome,
+    loot,
+  } = req.body;
 
-  const s = new Enemy({ name, hp, mp, sp, difficulty, level });
+  const s = new Enemy({
+    name,
+    max_hp,
+    max_mp,
+    max_sp,
+    difficulty,
+    level,
+    sprite,
+    atk,
+    def,
+    mgc,
+    bg,
+    biome,
+    loot,
+  });
   try {
     await s.save();
 
@@ -45,6 +73,22 @@ const getAllPopulated = async (req, res) => {
   }
 };
 
+const get = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Enemy.findById(id);
+
+    return res.status(200).json({
+      success: true,
+      msg: `${d.name} retrieved`,
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 const addItem = async (req, res) => {
   const { id, item } = req.body;
 
@@ -67,9 +111,45 @@ const addItem = async (req, res) => {
   }
 };
 
+const getLevelled = async (req, res) => {
+  const { level } = req.params;
+
+  try {
+    const lower = Math.max(1, parseInt(level) - 5);
+    const upper = parseInt(level) + 5;
+
+    console.log(lower);
+    console.log(upper);
+
+    const d = await Enemy.aggregate([
+      {
+        $match: {
+          level: {
+            $lte: upper,
+            $gte: lower,
+          },
+        },
+      },
+      {
+        $sample: { size: 1 },
+      },
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Enemy record from levelled range",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   addItem,
   getAll,
   getAllPopulated,
+  get,
+  getLevelled,
 };

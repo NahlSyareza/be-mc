@@ -4,6 +4,6 @@ const controller = require("../controllers/skill.controllers");
 
 router.get("/getAll", controller.getAll);
 router.post("/create", controller.create);
-router.put("/progressXP", controller.progressXP);
+router.get("/getAll/p", controller.getAllPopulated);
 
 module.exports = router;

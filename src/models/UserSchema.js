@@ -15,28 +15,42 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    hp: {
+    max_hp: {
       type: Number,
       default: 100,
     },
-    mp: {
+    max_mp: {
       type: Number,
       default: 100,
     },
-    sp: {
+    max_sp: {
       type: Number,
       default: 100,
+    },
+    atk: {
+      type: Number,
+      default: 1,
+    },
+    def: {
+      type: Number,
+      default: 1,
+    },
+    mgc: {
+      type: Number,
+      default: 1,
     },
     level: {
       type: Number,
-      default: 0,
+      default: 1,
     },
     guild: {
       type: String,
       default: "None",
     },
-    items: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
-    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "User_Skill" }],
+    bg: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
