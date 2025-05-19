@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.CONNECTION_STRING);
 
-const user = require("../src/routes/user.routes");
-const item = require("../src/routes/item.routes");
-const post = require("../src/routes/post.routes");
-const skill = require("../src/routes/skill.routes");
-const enemy = require("../src/routes/enemy.routes");
+const user = require("../src/routes/user.route");
+const item = require("../src/routes/item.route");
+const post = require("../src/routes/post.route");
+const skill = require("../src/routes/skill.route");
+const enemy = require("../src/routes/enemy.route");
 const inventory = require("../src/routes/inventory.route");
 const loot = require("../src/routes/loot.route");
 

@@ -26,11 +26,11 @@ const WeaponSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  skill: {
-    type: String,
-    enum: ["one-handed", "two-handed", "marksman"],
-    required: true,
-  },
+  // skill: {
+  //   type: String,
+  //   enum: ["one-handed", "two-handed", "marksman"],
+  //   required: true,
+  // },
   cost: {
     type: Number,
     required: true,
@@ -42,11 +42,11 @@ const SpellSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  skill: {
-    type: String,
-    enum: ["destruction", "alteration", "restoration"],
-    required: true,
-  },
+  // skill: {
+  //   type: String,
+  //   enum: ["destruction", "alteration", "restoration"],
+  //   required: true,
+  // },
   cost: {
     type: Number,
     required: true,
@@ -58,11 +58,11 @@ const ArmorSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  skill: {
-    type: String,
-    enum: ["deflecting", "heavy-armor", "light-armor"],
-    required: true,
-  },
+  // skill: {
+  //   type: String,
+  //   enum: ["deflecting", "heavy-armor", "light-armor"],
+  //   required: true,
+  // },
 });
 
 const PotionSchema = new mongoose.Schema({

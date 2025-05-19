@@ -9,14 +9,14 @@ const EnemySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  max_mp: {
-    type: Number,
-    required: true,
-  },
-  max_sp: {
-    type: Number,
-    required: true,
-  },
+  // max_mp: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // max_sp: {
+  //   type: Number,
+  //   required: true,
+  // },
   atk: {
     type: Number,
     required: true,
@@ -29,10 +29,10 @@ const EnemySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  difficulty: {
-    type: String,
-    required: true,
-  },
+  // difficulty: {
+  //   type: String,
+  //   required: true,
+  // },
   level: {
     type: Number,
     required: true,

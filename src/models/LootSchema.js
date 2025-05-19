@@ -2,31 +2,38 @@ const mongoose = require("mongoose");
 
 const LootSchema = new mongoose.Schema(
   {
-    biome: {
-      type: String,
-      required: true,
-      enum: ["forest", "jungle", "hallow", "crimson", "corruption"],
-    },
-    min_level: {
+    level: {
       type: Number,
       required: true,
     },
-    max_level: {
-      type: Number,
-      required: true,
+    item: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Item",
     },
-    items: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Item",
-      },
-    ],
   },
   { timestamps: true }
 );
 
-LootSchema.index({ biome: 1, min_level: 1, max_level: 1 }, { unique: true });
+const EnemyLootSchema = new mongoose.Schema({
+  biome: {
+    type: String,
+    required: true,
+    enum: ["forest", "jungle", "hallow", "crimson", "corruption"],
+  },
+});
+
+const MerchantLootSchema = new mongoose.Schema({
+  merchant: {
+    type: String,
+    required: true,
+  },
+});
+
+MerchantLootSchema.index({ merchant: 1 }, { unique: true });
 
 const Loot = mongoose.model("Loot", LootSchema);
 
-module.exports = Loot;
+const EnemyLoot = Loot.discriminator("enemy_loot", EnemyLootSchema);
+const MerchantLoot = Loot.discriminator("merchant_loot", MerchantLootSchema);
+
+module.exports = { Loot, EnemyLoot, MerchantLoot };

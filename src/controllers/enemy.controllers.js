@@ -14,7 +14,6 @@ const create = async (req, res) => {
     sprite,
     bg,
     biome,
-    loot,
   } = req.body;
 
   const s = new Enemy({
@@ -30,12 +29,13 @@ const create = async (req, res) => {
     mgc,
     bg,
     biome,
-    loot,
   });
+
   try {
     await s.save();
 
     return res.status(200).json({
+      success: true,
       msg: "Enemy created!",
       payload: s,
     });
@@ -46,7 +46,10 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const s = await Enemy.find().lean();
+    const s = await Enemy.find().lean().sort({
+      biome: 1,
+      level: 1,
+    });
 
     return res.status(200).json({
       msg: "Retrieved all enemies!",
@@ -112,18 +115,19 @@ const addItem = async (req, res) => {
 };
 
 const getLevelled = async (req, res) => {
-  const { level } = req.params;
+  const { level, biome } = req.query;
 
   try {
     const lower = Math.max(1, parseInt(level) - 5);
     const upper = parseInt(level) + 5;
 
-    console.log(lower);
-    console.log(upper);
+    // console.log(lower);
+    // console.log(upper);
 
-    const d = await Enemy.aggregate([
+    const [d] = await Enemy.aggregate([
       {
         $match: {
+          biome: biome,
           level: {
             $lte: upper,
             $gte: lower,
@@ -145,6 +149,22 @@ const getLevelled = async (req, res) => {
   }
 };
 
+const del = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Enemy.findOneAndDelete({ _id: id });
+
+    return res.status(200).json({
+      success: true,
+      message: "Deleted Enemy record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   addItem,
@@ -152,4 +172,5 @@ module.exports = {
   getAllPopulated,
   get,
   getLevelled,
+  del,
 };

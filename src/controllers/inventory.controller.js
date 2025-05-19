@@ -5,7 +5,45 @@ const add = async (req, res) => {
   const { user, item, count } = req.body;
 
   try {
-    const m = await Item.BaseItem.findById(item);
+    const m = await Inventory.findOne({ user, item }).lean().populate("item");
+
+    if (!m) {
+      const i = await Item.BaseItem.findOne({ _id: item }).lean();
+      console.log(i.max_stack);
+      let finalCount = Math.min(i.max_stack, count);
+      console.log(finalCount);
+      const d = new Inventory({ user, item, count: parseInt(finalCount) });
+      await d.save();
+
+      return res.status(200).json({
+        success: true,
+        msg: "Inventory created!",
+        payload: d,
+      });
+    }
+
+    if (m.count >= m.item.max_stack || count >= m.item.max_stack) {
+      const x = await Inventory.findOneAndUpdate(
+        {
+          user,
+          item,
+        },
+        {
+          $set: {
+            count: m.item.max_stack,
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      return res.status(200).json({
+        success: true,
+        msg: "Max stack reached!",
+        payload: x,
+      });
+    }
 
     const f = await Inventory.findOneAndUpdate(
       { user, item },
@@ -16,17 +54,6 @@ const add = async (req, res) => {
       },
       { new: true }
     );
-
-    if (!f) {
-      const d = new Inventory({ user, item, count });
-      await d.save();
-
-      return res.status(200).json({
-        success: true,
-        msg: "Inventory created!",
-        payload: d,
-      });
-    }
 
     return res.status(200).json({
       success: true,
@@ -76,6 +103,19 @@ const remove = async (req, res) => {
       { new: true }
     );
 
+    if (f.count < 1) {
+      const d = await Inventory.findOneAndDelete({
+        user,
+        item,
+      });
+
+      return res.status(200).json({
+        success: true,
+        msg: "Deleted Inventory record",
+        payload: d,
+      });
+    }
+
     return res.status(200).json({
       success: true,
       msg: "Removed inventory item!",
@@ -102,7 +142,10 @@ const getAll = async (req, res) => {
 
 const getAllPopulated = async (req, res) => {
   try {
-    const d = await Inventory.find().lean().populate("user item");
+    const d = await Inventory.find()
+      .lean()
+      .populate("user item")
+      .sort({ user: 1 });
 
     return res.status(200).json({
       success: true,
@@ -148,6 +191,24 @@ const getPopulated = async (req, res) => {
   }
 };
 
+const del = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Inventory.findOneAndDelete({
+      _id: id,
+    });
+
+    return res.status(200).json({
+      success: true,
+      msg: "Deleted Inventory record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   add,
   remove,
@@ -156,4 +217,5 @@ module.exports = {
   getAllPopulated,
   get,
   getPopulated,
+  del,
 };

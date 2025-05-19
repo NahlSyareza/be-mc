@@ -10,5 +10,6 @@ router.post("/addItem", controller.addItem);
 router.post("/dummy", controller.getAssocSkill);
 router.get("/getItems/:user", controller.getItems);
 router.post("/login", controller.getByCredential);
+router.post("/progressXP", controller.progressXP);
 
 module.exports = router;

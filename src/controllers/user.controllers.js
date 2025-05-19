@@ -1,12 +1,13 @@
 const User = require("../models/UserSchema");
 
 const create = async (req, res) => {
-  const { name, email, password, bg } = req.body;
-  const user = new User({ name, email, password, dummy: name, bg });
+  const { name, email, password, bg, sprite } = req.body;
+  const user = new User({ name, email, password, sprite, bg });
   try {
     await user.save();
 
     return res.status(200).json({
+      success: true,
       msg: "User added!",
       payload: user,
     });
@@ -24,7 +25,7 @@ const getByCredential = async (req, res) => {
       password: password,
     });
 
-    console.log(d);
+    // console.log(d);
 
     if (!d) {
       return res
@@ -146,6 +147,64 @@ const getAssocSkill = async (req, res) => {
   }
 };
 
+const progressXP = async (req, res) => {
+  const { user, xp } = req.body;
+
+  let d;
+  try {
+    d = await User.findOneAndUpdate(
+      { _id: user },
+      {
+        $inc: {
+          p_xp: xp,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+
+    // console.log(d);
+
+    if (d.p_xp >= d.l_xp) {
+      console.log(true);
+      const f = await User.findOneAndUpdate(
+        { _id: user },
+        {
+          $set: {
+            p_xp: 0,
+            l_xp: d.l_xp * 1.5,
+            max_hp: d.max_hp + 25,
+            max_sp: d.max_sp + 25,
+            max_mp: d.max_mp + 25,
+            atk: d.atk + 5,
+            def: d.def + 5,
+            mgc: d.mgc + 5,
+          },
+          $inc: {
+            level: 1,
+          },
+        },
+        { new: true }
+      );
+
+      return res.status(200).json({
+        success: true,
+        msg: "User gained XP!",
+        payload: f,
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      msg: "User gained XP!",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   getAll,
@@ -155,4 +214,5 @@ module.exports = {
   getAssocSkill,
   getItems,
   getByCredential,
+  progressXP,
 };

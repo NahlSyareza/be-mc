@@ -7,6 +7,7 @@ router.put("/addItem", c.addItem);
 router.get("/get/:id", c.get);
 router.get("/getAll", c.getAll);
 router.get("/getAll/p", c.getAllPopulated);
-router.get("/getLevelled/:level", c.getLevelled);
+router.get("/getLevelled", c.getLevelled);
+router.delete("/delete/:id", c.del);
 
 module.exports = router;

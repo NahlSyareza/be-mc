@@ -13,7 +13,7 @@ const create = async (req, res) => {
       desc,
       atk: extra.atk,
       cost: extra.cost,
-      skill: extra.skill,
+      // skill: extra.skill,
     });
   } else if (type === "armor") {
     d = new Item.Armor({
@@ -22,11 +22,11 @@ const create = async (req, res) => {
       sprite,
       desc,
       def: extra.def,
-      skill: extra.skill,
+      // skill: extra.skill,
     });
   } else if (type === "potion") {
     d = new Item.Potion({
-      type,
+      // type,
       name,
       sprite,
       desc,
@@ -40,7 +40,7 @@ const create = async (req, res) => {
       sprite,
       desc,
       mgc: extra.mgc,
-      skill: extra.skill,
+      // skill: extra.skill,
       cost: extra.cost,
     });
   } else {
@@ -68,7 +68,10 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const items = await Item.BaseItem.find().lean();
+    const items = await Item.BaseItem.find().lean().sort({
+      __t: 1,
+      name: 1,
+    });
 
     return res.status(200).json({
       msg: "Items retrieved!",
@@ -95,8 +98,27 @@ const get = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {};
+
+const del = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Item.BaseItem.findOneAndDelete({ _id: id });
+
+    return res.status(200).json({
+      success: true,
+      msg: "Deleted Item record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   getAll,
   get,
+  del,
 };

@@ -21,11 +21,11 @@ const UserSchema = new mongoose.Schema(
     },
     max_mp: {
       type: Number,
-      default: 100,
+      default: 25,
     },
     max_sp: {
       type: Number,
-      default: 100,
+      default: 25,
     },
     atk: {
       type: Number,
@@ -48,6 +48,18 @@ const UserSchema = new mongoose.Schema(
       default: "None",
     },
     bg: {
+      type: String,
+      required: true,
+    },
+    p_xp: {
+      type: Number,
+      default: 0,
+    },
+    l_xp: {
+      type: Number,
+      default: 100,
+    },
+    sprite: {
       type: String,
       required: true,
     },

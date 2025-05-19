@@ -1,9 +1,24 @@
 const Loot = require("../models/LootSchema");
+const random = require("../utils/misc.util");
 
 const create = async (req, res) => {
-  const { biome, min_level, max_level } = req.body;
+  const { item, level, type, extra } = req.body;
 
-  const d = new Loot({ biome, min_level, max_level });
+  let d;
+
+  if (type === "enemy_loot") {
+    d = new Loot.EnemyLoot({
+      item,
+      level,
+      biome: extra.biome,
+    });
+  } else {
+    d = new Loot.MerchantLoot({
+      item,
+      level,
+      merchant: extra.merchant,
+    });
+  }
   try {
     await d.save();
 
@@ -17,45 +32,9 @@ const create = async (req, res) => {
   }
 };
 
-const add = async (req, res) => {
-  const { loot, items } = req.body;
-  const arr = [];
-
-  try {
-    const d = await Loot.findById(loot);
-
-    if (!d) {
-      return res.status(200).json({
-        success: false,
-        msg: "Loot entry doesn't exist",
-        payload: d,
-      });
-    }
-
-    items.map(async (e) => {
-      await Loot.findOneAndUpdate(
-        { _id: loot },
-        {
-          $push: {
-            items: e,
-          },
-        }
-      ).finally(arr.push(e));
-    });
-
-    return res.status(200).json({
-      success: true,
-      msg: "Added items to Loot entry!",
-      payload: arr,
-    });
-  } catch (e) {
-    return res.status(400).send(e);
-  }
-};
-
 const getAll = async (req, res) => {
   try {
-    const d = await Loot.find().lean();
+    const d = await Loot.Loot.find().lean();
 
     return res.status(200).json({
       success: true,
@@ -69,7 +48,7 @@ const getAll = async (req, res) => {
 
 const getAllPopulated = async (req, res) => {
   try {
-    const d = await Loot.find().lean().populate("items");
+    const d = await Loot.Loot.find().lean().populate("item").sort({ level: 1 });
 
     return res.status(200).json({
       success: true,
@@ -81,9 +60,130 @@ const getAllPopulated = async (req, res) => {
   }
 };
 
+const getLevelled = async (req, res) => {
+  const { level, biome } = req.query;
+
+  try {
+    const d = await Loot.EnemyLoot.findOne({
+      biome: biome,
+      level: {
+        $lte: Math.max(1, level - 5),
+        $gte: level + 5,
+      },
+    }).lean();
+
+    const num = random.getRandomInt(d.items.length);
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Loot record from levelled range!",
+      payload: d.items[num],
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getLevelledPopulated = async (req, res) => {
+  const { level, biome } = req.query;
+
+  try {
+    const [d] = await Loot.EnemyLoot.aggregate([
+      {
+        $lookup: {
+          from: "items",
+          localField: "item",
+          foreignField: "_id",
+          as: "item",
+        },
+      },
+      {
+        $unwind: "$item",
+      },
+      {
+        $match: {
+          biome: biome,
+          level: {
+            $lte: parseInt(level),
+          },
+        },
+      },
+      {
+        $sample: { size: 1 },
+      },
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Loot record from levelled range!",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getMerchant = async (req, res) => {
+  const { merchant } = req.params;
+
+  try {
+    const d = await Loot.MerchantLoot.find({
+      merchant,
+    }).lean();
+
+    return res.status(200).json({
+      success: true,
+      msg: `Retrieved Loot for ${merchant}`,
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getMerchantPopulated = async (req, res) => {
+  const { merchant } = req.params;
+
+  try {
+    const d = await Loot.MerchantLoot.find({
+      merchant,
+    })
+      .lean()
+      .populate("item");
+
+    return res.status(200).json({
+      success: true,
+      msg: `Retrieved Loot for ${merchant}`,
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const del = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Loot.Loot.findOneAndDelete({ _id: id });
+
+    return res.status(200).json({
+      success: true,
+      msg: "Delete Loot record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
-  add,
   getAll,
   getAllPopulated,
+  getLevelled,
+  getLevelledPopulated,
+  getMerchant,
+  getMerchantPopulated,
+  del,
 };
