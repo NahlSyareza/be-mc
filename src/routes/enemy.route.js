@@ -9,5 +9,6 @@ router.get("/getAll", c.getAll);
 router.get("/getAll/p", c.getAllPopulated);
 router.get("/getLevelled", c.getLevelled);
 router.delete("/delete/:id", c.del);
+router.put("/update", c.update);
 
 module.exports = router;

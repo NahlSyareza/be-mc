@@ -149,6 +149,35 @@ const getLevelled = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  const { id, max_hp, atk, def, mgc, level } = req.body;
+
+  try {
+    const d = await Enemy.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      {
+        $set: {
+          max_hp,
+          atk,
+          def,
+          mgc,
+          level,
+        },
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      msg: "Updated Enemy record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 const del = async (req, res) => {
   const { id } = req.params;
 
@@ -173,4 +202,5 @@ module.exports = {
   get,
   getLevelled,
   del,
+  update,
 };

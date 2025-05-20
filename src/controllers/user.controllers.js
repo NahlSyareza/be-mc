@@ -1,4 +1,5 @@
 const User = require("../models/UserSchema");
+const Inventory = require("../models/InventorySchema");
 
 const create = async (req, res) => {
   const { name, email, password, bg, sprite } = req.body;
@@ -173,13 +174,13 @@ const progressXP = async (req, res) => {
         {
           $set: {
             p_xp: 0,
-            l_xp: d.l_xp * 1.5,
-            max_hp: d.max_hp + 25,
-            max_sp: d.max_sp + 25,
-            max_mp: d.max_mp + 25,
-            atk: d.atk + 5,
-            def: d.def + 5,
-            mgc: d.mgc + 5,
+            l_xp: d.l_xp * 1.25,
+            max_hp: d.max_hp + 10,
+            max_sp: d.max_sp + 10,
+            max_mp: d.max_mp + 10,
+            atk: d.atk + 1,
+            def: d.def + 1,
+            mgc: d.mgc + 1,
           },
           $inc: {
             level: 1,
@@ -205,6 +206,51 @@ const progressXP = async (req, res) => {
   }
 };
 
+const del = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const i = await Inventory.deleteMany({ user: id });
+    const d = await User.findOneAndDelete({ _id: id });
+
+    return res.status(200).json({
+      success: true,
+      msg: "Deleted User record!",
+      payload: [i, d],
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const update = async (req, res) => {
+  const { id, name, email, password } = req.body;
+
+  try {
+    const d = await User.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      {
+        $set: {
+          name,
+          password,
+          email,
+        },
+      },
+      { new: true }
+    );
+
+    return res.status(200).json({
+      success: true,
+      msg: "Updated User record",
+      paylaod: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   getAll,
@@ -215,4 +261,6 @@ module.exports = {
   getItems,
   getByCredential,
   progressXP,
+  del,
+  update,
 };

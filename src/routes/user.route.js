@@ -11,5 +11,7 @@ router.post("/dummy", controller.getAssocSkill);
 router.get("/getItems/:user", controller.getItems);
 router.post("/login", controller.getByCredential);
 router.post("/progressXP", controller.progressXP);
+router.delete("/delete/:id", controller.del);
+router.put("/update", controller.update);
 
 module.exports = router;

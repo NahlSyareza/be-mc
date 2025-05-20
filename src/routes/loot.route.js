@@ -10,5 +10,8 @@ router.get("/getLevelled/p", c.getLevelledPopulated);
 router.get("/getMerchant/:merchant", c.getMerchant);
 router.get("/getMerchant/p/:merchant", c.getMerchantPopulated);
 router.delete("/delete/:id", c.del);
+router.put("/update", c.update);
+router.get("/get/:id", c.get);
+router.get("/get/p/:id", c.getPopulated);
 
 module.exports = router;

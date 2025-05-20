@@ -32,6 +32,38 @@ const create = async (req, res) => {
   }
 };
 
+const get = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Loot.Loot.findById(id).lean();
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Loot record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getPopulated = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Loot.Loot.findById(id).lean().populate("item");
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Loot record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 const getAll = async (req, res) => {
   try {
     const d = await Loot.Loot.find().lean();
@@ -177,6 +209,34 @@ const del = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  const { id, level } = req.body;
+
+  try {
+    const d = await Loot.Loot.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      {
+        $set: {
+          level,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      msg: "Updated Loot type enemy loot record!",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
 module.exports = {
   create,
   getAll,
@@ -186,4 +246,7 @@ module.exports = {
   getMerchant,
   getMerchantPopulated,
   del,
+  update,
+  get,
+  getPopulated,
 };
