@@ -110,9 +110,15 @@ Loot dapat digunakan sebagai reward ketika mengalahkan musuh atau dijual oleh NP
 
 Docker Hub: https://hub.docker.com/r/nahlsyareza/be-mc
 
-### Cara Menjalankan dengan Docker
+### Requirement
 
 1. Pastikan Docker sudah terinstall
+
+2. Instalasi Docker bisa diverifikasi dengan command docker version di command prompt
+
+3. Pastikan juga kalian sudah menjalankan Docker Desktop
+
+### Menjalankan Docker
 
 2. Jalankan container
 
