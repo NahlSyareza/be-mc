@@ -117,7 +117,7 @@ Docker Hub: https://hub.docker.com/r/nahlsyareza/be-mc
 2. Jalankan container
 
    ```
-   docker run -d -p 4000:4000 --name be-mc nahlsyareza/be-mc
+   docker run --name be-mc nahlsyareza/be-mc -d -p 4000:4000
    ```
 
    Keterangan:
