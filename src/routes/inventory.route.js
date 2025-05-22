@@ -10,5 +10,7 @@ router.get("/get/p/:user", c.getPopulated);
 router.put("/remove", c.remove);
 router.put("/set", c.set);
 router.delete("/delete/:id", c.del);
+router.get("/get/id/:id", c.getById);
+router.get("/get/id/p/:id", c.getByIdPopulated);
 
 module.exports = router;

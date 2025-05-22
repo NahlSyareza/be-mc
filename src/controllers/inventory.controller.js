@@ -66,11 +66,11 @@ const add = async (req, res) => {
 };
 
 const set = async (req, res) => {
-  const { user, item, count } = req.body;
+  const { id, count } = req.body;
 
   try {
     const f = await Inventory.findOneAndUpdate(
-      { user, item },
+      { _id: id },
       {
         $set: {
           count: count,
@@ -177,13 +177,44 @@ const getPopulated = async (req, res) => {
   const { user } = req.params;
 
   try {
-    const d = await Inventory.find({ user })
-      .populate("item")
-      .select("item count");
+    const d = await Inventory.find({ user }).populate("item");
+    // .select("item count");
 
     return res.status(200).json({
       success: true,
       msg: "User inventory retrieved!",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Inventory.findById(id).lean();
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Inventory record",
+      payload: d,
+    });
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+};
+
+const getByIdPopulated = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const d = await Inventory.findById(id).lean().populate("user item");
+
+    return res.status(200).json({
+      success: true,
+      msg: "Retrieved Inventory record",
       payload: d,
     });
   } catch (e) {
@@ -218,4 +249,6 @@ module.exports = {
   get,
   getPopulated,
   del,
+  getById,
+  getByIdPopulated,
 };
