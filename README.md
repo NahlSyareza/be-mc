@@ -105,3 +105,43 @@ Loot dapat digunakan sebagai reward ketika mengalahkan musuh atau dijual oleh NP
 
 - DELETE **/loot/delete/:id**
   API ini menghapus document berdasarkan id yang diberikan pada params
+
+## Dokumentasi Docker
+
+Docker Hub: https://hub.docker.com/r/nahlsyareza/be-mc
+
+### Cara Menjalankan dengan Docker
+
+1. Pastikan Docker sudah terinstall
+
+2. Jalankan container
+
+   ```
+   docker run -d -p 4000:4000 --name be-mc nahlsyareza/be-mc
+   ```
+
+   Keterangan:
+   - `-d`: Menjalankan container di background
+   - `-p 4000:4000`: Mapping port lokal ke port container
+   - `--name be-mc`: Menentukan nama container
+   - `nahlsyareza/be-mc`: Nama image dari Docker Hub
+
+## Menghentikan dan Menghapus Container
+
+1. Stop container
+
+  ```
+  docker stop be-mc
+  ```
+
+2. Hapus container
+
+  ```
+  docker rm be-mc
+  ```
+
+3. Menghapus Image
+
+```
+docker rmi nahlsyareza/be-mc
+```
