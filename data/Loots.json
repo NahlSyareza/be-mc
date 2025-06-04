@@ -1,0 +1,162 @@
+[{
+  "_id": {
+    "$oid": "682b0f42325156972e8d8846"
+  },
+  "level": 1,
+  "item": {
+    "$oid": "6829884a43820707964a519e"
+  },
+  "__t": "enemy_loot",
+  "biome": "forest",
+  "createdAt": {
+    "$date": "2025-05-19T11:00:18.858Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:00:18.858Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b11b077c3c480ae41690e"
+  },
+  "level": 1,
+  "item": {
+    "$oid": "6829888343820707964a51a0"
+  },
+  "__t": "enemy_loot",
+  "biome": "forest",
+  "createdAt": {
+    "$date": "2025-05-19T11:10:40.427Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:10:40.427Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b11c877c3c480ae416915"
+  },
+  "level": 1,
+  "item": {
+    "$oid": "682988a143820707964a51a2"
+  },
+  "__t": "enemy_loot",
+  "biome": "forest",
+  "createdAt": {
+    "$date": "2025-05-19T11:11:04.816Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:11:04.816Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b11f577c3c480ae41691b"
+  },
+  "level": 5,
+  "item": {
+    "$oid": "6829880243820707964a519a"
+  },
+  "__t": "enemy_loot",
+  "biome": "forest",
+  "createdAt": {
+    "$date": "2025-05-19T11:11:49.907Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:11:49.907Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b166099f2143a6c4e1c78"
+  },
+  "level": 1,
+  "item": {
+    "$oid": "682aad7da6f56f8dc9ed2c33"
+  },
+  "__t": "merchant_loot",
+  "merchant": "skeleton_merchant",
+  "createdAt": {
+    "$date": "2025-05-19T11:30:40.460Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:30:40.460Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b168799f2143a6c4e1c7f"
+  },
+  "level": 1,
+  "item": {
+    "$oid": "682aad9aa6f56f8dc9ed2c35"
+  },
+  "__t": "merchant_loot",
+  "merchant": "skeleton_merchant",
+  "createdAt": {
+    "$date": "2025-05-19T11:31:19.513Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T11:31:19.513Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b7313fbe4fef962180393"
+  },
+  "level": 3,
+  "item": {
+    "$oid": "682987da43820707964a5198"
+  },
+  "__t": "merchant_loot",
+  "merchant": "skeleton_merchant",
+  "createdAt": {
+    "$date": "2025-05-19T18:06:11.638Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T14:55:46.728Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682c76fa01ebe47c8b7321ea"
+  },
+  "level": 10,
+  "item": {
+    "$oid": "6829884a43820707964a519e"
+  },
+  "__t": "merchant_loot",
+  "merchant": "skeleton_merchant",
+  "createdAt": {
+    "$date": "2025-05-20T12:35:06.296Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T12:35:06.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682d34180f14da43214cef5f"
+  },
+  "level": 10,
+  "item": {
+    "$oid": "682b5a5266ff256b79ff38a0"
+  },
+  "__t": "enemy_loot",
+  "biome": "jungle",
+  "createdAt": {
+    "$date": "2025-05-21T02:02:00.057Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-21T02:02:00.057Z"
+  },
+  "__v": 0
+}]

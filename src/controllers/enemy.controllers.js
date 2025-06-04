@@ -130,7 +130,7 @@ const getLevelled = async (req, res) => {
           biome: biome,
           level: {
             $lte: upper,
-            $gte: lower,
+            // $gte: lower,
           },
         },
       },

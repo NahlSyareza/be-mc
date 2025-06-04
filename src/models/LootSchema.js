@@ -29,8 +29,6 @@ const MerchantLootSchema = new mongoose.Schema({
   },
 });
 
-MerchantLootSchema.index({ merchant: 1 }, { unique: true });
-
 const Loot = mongoose.model("Loot", LootSchema);
 
 const EnemyLoot = Loot.discriminator("enemy_loot", EnemyLootSchema);

@@ -120,34 +120,54 @@ Docker Hub: https://hub.docker.com/r/nahlsyareza/be-mc
 
 ### Menjalankan Docker
 
-2. Jalankan container
-
-   ```
-   docker run --name be-mc nahlsyareza/be-mc -d -p 4000:4000
-   ```
-
-   Keterangan:
-   - `-d`: Menjalankan container di background
-   - `-p 4000:4000`: Mapping port lokal ke port container
-   - `--name be-mc`: Menentukan nama container
-   - `nahlsyareza/be-mc`: Nama image dari Docker Hub
-
-## Menghentikan dan Menghapus Container
-
-1. Stop container
-
-  ```
-  docker stop be-mc
-  ```
-
-2. Hapus container
-
-  ```
-  docker rm be-mc
-  ```
-
-3. Menghapus Image
+1. Melakukan pull untuk ketiga image ini:
 
 ```
-docker rmi nahlsyareza/be-mc
+- Backend: docker pull nahlsyareza/be-mc:latest
+- Frontend: docker pull nahlsyareza/fe-mc:latest
+- Database: docker pull mongo
 ```
+
+2. Membuat file docker compose dengan isi berikut:
+
+```
+version: "3.8"
+services:
+  frontend:
+    # build: ./fe-mc
+    image: nahlsyareza/fe-mc
+    container_name: fe-mc
+    ports:
+      - 4002:4002
+    networks:
+      - mc-network
+  backend:
+    # build: ./be-mc
+    image: nahlsyareza/be-mc
+    container_name: be-mc
+    ports:
+      - 4001:4001
+    networks:
+      - mc-network
+  database:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - mc-network
+
+networks:
+  mc-network:
+    external: true
+```
+
+3. Download [MongoDB Compass](https://www.mongodb.com/try/download/compass) dan buat koneksi baru dengan connection string ini
+
+```
+mongodb://localhost:27017
+```
+
+4. Akan dibuat database baru bernama 'majo_computer'. Buka database dan masuk ke collection. Masukkan data-data yang ada pada folder 'data' di repository ini sesuai dengan nama file dan collection.
+
+5. Backend bisa diakses pada (http://localhost:4001)[http://localhost:4001]. Frontend dapat diakses pada (http://localhost:4002)[http://localhost:4002]

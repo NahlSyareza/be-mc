@@ -1,0 +1,371 @@
+[{
+  "_id": {
+    "$oid": "68236caf5c59404fa208d2db"
+  },
+  "name": "Terra Blade",
+  "sprite": "https://terraria.wiki.gg/images/4/4d/Terra_Blade.png?6df328",
+  "__t": "weapon",
+  "atk": 145,
+  "skill": "one-handed",
+  "cost": 56,
+  "createdAt": {
+    "$date": "2025-05-13T16:00:47.775Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-13T16:00:47.775Z"
+  },
+  "__v": 0,
+  "max_stack": 1
+},
+{
+  "_id": {
+    "$oid": "68236cd95c59404fa208d2dd"
+  },
+  "name": "The Horseman's Blade",
+  "sprite": "https://terraria.wiki.gg/images/9/93/The_Horseman%27s_Blade.png?ed149b",
+  "__t": "weapon",
+  "atk": 103,
+  "skill": "one-handed",
+  "cost": 35,
+  "createdAt": {
+    "$date": "2025-05-13T16:01:29.137Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-13T16:01:29.137Z"
+  },
+  "__v": 0,
+  "max_stack": 1
+},
+{
+  "_id": {
+    "$oid": "68236d4c6c9cc63199c7c0e8"
+  },
+  "name": "Crystal Shard",
+  "sprite": "https://terraria.wiki.gg/images/1/19/Crystal_Shard.png?59de4d",
+  "max_stack": 99,
+  "__t": "misc",
+  "createdAt": {
+    "$date": "2025-05-13T16:03:24.874Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T13:28:09.079Z"
+  },
+  "__v": 0,
+  "desc": ""
+},
+{
+  "_id": {
+    "$oid": "68236da46c9cc63199c7c0ec"
+  },
+  "name": "Daybreak",
+  "sprite": "https://terraria.wiki.gg/images/7/77/Daybreak.png?3d58c9",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 433,
+  "skill": "two-handed",
+  "cost": 311,
+  "createdAt": {
+    "$date": "2025-05-13T16:04:52.477Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-13T16:04:52.477Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68236db76c9cc63199c7c0ee"
+  },
+  "name": "Solar Eruption",
+  "sprite": "https://terraria.wiki.gg/images/1/10/Solar_Eruption.png?fd2114",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 378,
+  "skill": "one-handed",
+  "cost": 33,
+  "createdAt": {
+    "$date": "2025-05-13T16:05:11.724Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-13T16:05:11.724Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682483a7e4b21e849872701a"
+  },
+  "name": "Hellstone",
+  "sprite": "https://terraria.wiki.gg/images/8/8f/Hellstone.png?98d9cd",
+  "desc": "El hotto",
+  "max_stack": 99,
+  "__t": "misc",
+  "createdAt": {
+    "$date": "2025-05-14T11:51:03.074Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T13:30:29.278Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68275d7fe5d637cbb6dfff75"
+  },
+  "name": "Crystal Storm",
+  "sprite": "https://terraria.wiki.gg/images/f/fb/Crystal_Storm.png?abc018",
+  "max_stack": 1,
+  "__t": "spell",
+  "mgc": 50,
+  "skill": "destruction",
+  "cost": 67,
+  "createdAt": {
+    "$date": "2025-05-16T15:45:03.374Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-16T15:45:03.374Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682767bf62883b46f2002830"
+  },
+  "name": "HP Potion",
+  "sprite": "https://terraria.wiki.gg/images/2/2d/Regeneration_Potion.png?f9eab9",
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 25,
+  "attribute": "HP",
+  "createdAt": {
+    "$date": "2025-05-16T16:28:47.640Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-16T16:28:47.640Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682987da43820707964a5198"
+  },
+  "name": "Iron Sword",
+  "sprite": "https://terraria.wiki.gg/images/c/cf/Iron_Broadsword.png?b2b3bd",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 9,
+  "skill": "one-handed",
+  "cost": 7,
+  "createdAt": {
+    "$date": "2025-05-18T07:10:18.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:10:18.656Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6829880243820707964a519a"
+  },
+  "name": "Silver Sword",
+  "sprite": "https://terraria.wiki.gg/images/c/cb/Silver_Broadsword.png?d8a9c0",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 14,
+  "skill": "one-handed",
+  "cost": 9,
+  "createdAt": {
+    "$date": "2025-05-18T07:10:58.441Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:10:58.441Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6829881b43820707964a519c"
+  },
+  "name": "Gold Sword",
+  "sprite": "https://terraria.wiki.gg/images/1/11/Gold_Broadsword.png?7ac5d0",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 19,
+  "skill": "one-handed",
+  "cost": 12,
+  "createdAt": {
+    "$date": "2025-05-18T07:11:23.404Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:11:23.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6829884a43820707964a519e"
+  },
+  "name": "Mushroom",
+  "sprite": "https://terraria.wiki.gg/images/8/8c/Mushroom.png?abeb5f",
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 5,
+  "attribute": "HP",
+  "createdAt": {
+    "$date": "2025-05-18T07:12:10.074Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:12:10.074Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6829888343820707964a51a0"
+  },
+  "name": "Fallen Star",
+  "sprite": "https://terraria.wiki.gg/images/9/9c/Fallen_Star.png?a71f7d",
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 5,
+  "attribute": "MP",
+  "createdAt": {
+    "$date": "2025-05-18T07:13:07.115Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:13:07.115Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682988a143820707964a51a2"
+  },
+  "name": "Soup",
+  "sprite": "https://terraria.wiki.gg/images/f/f8/Bowl_of_Soup.png?b749f2",
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 5,
+  "attribute": "SP",
+  "createdAt": {
+    "$date": "2025-05-18T07:13:37.356Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T07:13:37.356Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6829e4eabf11eef164be23fb"
+  },
+  "name": "Agile Buckler",
+  "sprite": "https://terraria.wiki.gg/images/c/cc/Huntress%27s_Buckler.png?fcc993",
+  "max_stack": 1,
+  "__t": "armor",
+  "def": 100,
+  "skill": "light-armor",
+  "createdAt": {
+    "$date": "2025-05-18T13:47:22.443Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T13:21:50.906Z"
+  },
+  "__v": 0,
+  "desc": "Superbus"
+},
+{
+  "_id": {
+    "$oid": "682aad7da6f56f8dc9ed2c33"
+  },
+  "name": "Wooden Sword",
+  "sprite": "https://terraria.wiki.gg/images/c/cd/Wooden_Sword.png?7b2018",
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 7,
+  "skill": "one-handed",
+  "cost": 5,
+  "createdAt": {
+    "$date": "2025-05-19T04:03:09.965Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T04:03:09.965Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682aad9aa6f56f8dc9ed2c35"
+  },
+  "name": "Wooden Wand",
+  "sprite": "https://terraria.wiki.gg/images/9/91/Wand_of_Sparking.png?8e0b0e",
+  "max_stack": 1,
+  "__t": "spell",
+  "mgc": 7,
+  "skill": "destruction",
+  "cost": 5,
+  "createdAt": {
+    "$date": "2025-05-19T04:03:38.521Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T04:03:38.521Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b593466ff256b79ff389c"
+  },
+  "name": "SP Potion",
+  "sprite": "https://terraria.wiki.gg/images/3/3f/Swiftness_Potion.png?ee658c",
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 25,
+  "attribute": "SP",
+  "createdAt": {
+    "$date": "2025-05-19T16:15:48.836Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T16:15:48.836Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b59a166ff256b79ff389e"
+  },
+  "name": "MP Potion",
+  "sprite": "https://terraria.wiki.gg/images/3/3d/Gills_Potion.png?9f051f",
+  "desc": null,
+  "max_stack": 5,
+  "__t": "potion",
+  "restore": 25,
+  "attribute": "MP",
+  "createdAt": {
+    "$date": "2025-05-19T16:17:37.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T16:17:37.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b5a5266ff256b79ff38a0"
+  },
+  "name": "Blade of Grass",
+  "sprite": "https://terraria.wiki.gg/images/8/85/Blade_of_Grass.png?b18050",
+  "desc": null,
+  "max_stack": 1,
+  "__t": "weapon",
+  "atk": 24,
+  "cost": 17,
+  "createdAt": {
+    "$date": "2025-05-19T16:20:34.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T16:20:34.672Z"
+  },
+  "__v": 0
+}]

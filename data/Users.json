@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "6822c7a7b46db163bd11f58f"
+  },
+  "name": "Jon",
+  "email": "jon@email.com",
+  "password": "10101010",
+  "atk": 15,
+  "def": 15,
+  "mgc": 15,
+  "level": 13,
+  "guild": "None",
+  "createdAt": {
+    "$date": "2025-05-13T04:16:39.711Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T14:44:21.457Z"
+  },
+  "__v": 0,
+  "max_hp": 175,
+  "max_mp": 100,
+  "max_sp": 100,
+  "bg": "https://terraria.wiki.gg/images/9/9c/Forest_background_1.png?e2477a",
+  "sprite": "https://terraria.wiki.gg/images/7/7f/Guide.png?eebef6",
+  "p_xp": 200,
+  "l_xp": 337.5
+},
+{
+  "_id": {
+    "$oid": "682c99b40f14da43214ced12"
+  },
+  "name": "Superman",
+  "email": "super@gmail.com",
+  "password": "123123123",
+  "max_hp": 100,
+  "max_mp": 25,
+  "max_sp": 25,
+  "atk": 1,
+  "def": 1,
+  "mgc": 1,
+  "level": 1,
+  "guild": "None",
+  "bg": "https://terraria.wiki.gg/images/f/f9/Jungle_background_2.png?912c44",
+  "p_xp": 50,
+  "l_xp": 100,
+  "sprite": "https://terraria.wiki.gg/images/a/a5/Wizard_%28Shimmered%29.png?30da07",
+  "createdAt": {
+    "$date": "2025-05-20T15:03:16.841Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T15:05:03.191Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682d31120f14da43214ced81"
+  },
+  "name": "Nahl Syareza",
+  "email": "nahl@email.com",
+  "password": "nahl123",
+  "max_hp": 120,
+  "max_mp": 45,
+  "max_sp": 1000,
+  "atk": 3,
+  "def": 3,
+  "mgc": 3,
+  "level": 10,
+  "guild": "None",
+  "bg": "https://terraria.wiki.gg/images/e/e7/Crimson_background_3.png?f75540",
+  "p_xp": 110,
+  "l_xp": 156.25,
+  "sprite": "https://terraria.wiki.gg/images/1/1b/Clothier_%28Shimmered%29.png?4e0d40",
+  "createdAt": {
+    "$date": "2025-05-21T01:49:06.225Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-21T02:02:09.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682deb5c0f14da43214cef86"
+  },
+  "name": "Tester",
+  "email": "test@email.com",
+  "password": "test",
+  "max_hp": 110,
+  "max_mp": 35,
+  "max_sp": 35,
+  "atk": 1000,
+  "def": 2,
+  "mgc": 2,
+  "level": 10,
+  "guild": "None",
+  "bg": "https://terraria.wiki.gg/images/9/9c/Forest_background_1.png?e2477a",
+  "p_xp": 30,
+  "l_xp": 125,
+  "sprite": "https://terraria.wiki.gg/images/9/9c/Guide_%28Shimmered%29.png?cd416c",
+  "createdAt": {
+    "$date": "2025-05-21T15:03:56.352Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T02:11:10.021Z"
+  },
+  "__v": 0
+}]

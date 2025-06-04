@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "6822d07870b0b8281b622c1d"
+  },
+  "name": "Green Slime",
+  "atk": 5,
+  "def": 1,
+  "mgc": 0,
+  "level": 1,
+  "sprite": "https://terraria.wiki.gg/images/7/7b/Green_Slime.png?737ede",
+  "__v": 0,
+  "max_hp": 25,
+  "biome": "forest",
+  "bg": "https://terraria.wiki.gg/images/c/cf/Forest_background_15.png?b60d18"
+},
+{
+  "_id": {
+    "$oid": "682485c25cdcbbf58354d23f"
+  },
+  "name": "Eye of Cthulhu",
+  "max_hp": 10,
+  "atk": 1,
+  "def": 1,
+  "mgc": 1,
+  "level": 1,
+  "sprite": "https://terraria.wiki.gg/images/7/70/Eye_of_Cthulhu_%28Phase_1%29.gif?a440df",
+  "__v": 0,
+  "biome": "forest",
+  "bg": "https://terraria.wiki.gg/images/c/c3/Underworld_background_3.png?90a747"
+},
+{
+  "_id": {
+    "$oid": "682989fbdd9f86c435b23658"
+  },
+  "name": "Zombie",
+  "max_hp": 80,
+  "atk": 8,
+  "def": 3,
+  "mgc": 1,
+  "level": 6,
+  "sprite": "https://terraria.wiki.gg/images/c/cc/Zombie.gif?f0ac2a",
+  "bg": "https://terraria.wiki.gg/images/c/cf/Forest_background_15.png?b60d18",
+  "__v": 0,
+  "biome": "forest"
+},
+{
+  "_id": {
+    "$oid": "682992f1dd9f86c435b2365a"
+  },
+  "name": "Skeleton",
+  "max_hp": 65,
+  "atk": 13,
+  "def": 0,
+  "mgc": 1,
+  "level": 5,
+  "sprite": "https://terraria.wiki.gg/images/7/72/Skeleton.gif?26ef01",
+  "bg": "https://terraria.wiki.gg/images/c/cf/Forest_background_15.png?b60d18",
+  "__v": 0,
+  "biome": "forest"
+},
+{
+  "_id": {
+    "$oid": "682aac02a6f56f8dc9ed2b9d"
+  },
+  "name": "Pincushion Zombie",
+  "max_hp": 70,
+  "atk": 18,
+  "def": 0,
+  "mgc": 1,
+  "level": 7,
+  "sprite": "https://terraria.wiki.gg/images/8/84/Pincushion_Zombie.gif?23b98e",
+  "bg": "https://terraria.wiki.gg/images/c/cf/Forest_background_15.png?b60d18",
+  "biome": "forest",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682aac31a6f56f8dc9ed2b9f"
+  },
+  "name": "Swamp Zombie",
+  "max_hp": 60,
+  "atk": 12,
+  "def": 0,
+  "mgc": 1,
+  "level": 5,
+  "sprite": "https://terraria.wiki.gg/images/0/09/Swamp_Zombie.gif?86284b",
+  "bg": "https://terraria.wiki.gg/images/c/cf/Forest_background_15.png?b60d18",
+  "biome": "forest",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b65de50cc2f857f415a11"
+  },
+  "name": "Hornet",
+  "max_hp": 130,
+  "atk": 22,
+  "def": 9,
+  "mgc": 10,
+  "level": 13,
+  "sprite": "https://terraria.wiki.gg/images/4/45/Hornet.gif?f51de0",
+  "bg": "https://terraria.wiki.gg/images/5/5a/Jungle_background_4.png?a5df8d",
+  "biome": "jungle",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682b6659bcb085ee2634bf22"
+  },
+  "name": "Honey Hornet",
+  "max_hp": 145,
+  "atk": 26,
+  "def": 10,
+  "mgc": 15,
+  "level": 15,
+  "sprite": "https://terraria.wiki.gg/images/f/f4/Honey_Hornet.gif?dc82f7",
+  "bg": "https://terraria.wiki.gg/images/5/5a/Jungle_background_4.png?a5df8d",
+  "biome": "jungle",
+  "__v": 0
+}]
