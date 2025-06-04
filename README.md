@@ -134,7 +134,6 @@ docker pull mongo
 version: "3.8"
 services:
   frontend:
-    # build: ./fe-mc
     image: nahlsyareza/fe-mc
     container_name: fe-mc
     ports:
@@ -142,7 +141,6 @@ services:
     networks:
       - mc-network
   backend:
-    # build: ./be-mc
     image: nahlsyareza/be-mc
     container_name: be-mc
     ports:
