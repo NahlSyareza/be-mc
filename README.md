@@ -1,10 +1,10 @@
 # Proyek SBD
 
 ## Anggota
-Yehezkiel Jonatan - 2006520235 (Frontend Developer)
-Muhammad Hafiz Widyawan - 2006468762 (Backend Developer)
-Darmawan Hanif - 2206829175 (Backend Developer)
-Nahl Syareza Rahidra - 2206830340 (Frontend Developer + Integration)
+- Yehezkiel Jonatan - 2006520235 (Frontend Developer)
+- Muhammad Hafiz Widyawan - 2006468762 (Backend Developer)
+- Darmawan Hanif - 2206829175 (Backend Developer)
+- Nahl Syareza Rahidra - 2206830340 (Frontend Developer + Integration)
 
 ## Deskripsi
 
